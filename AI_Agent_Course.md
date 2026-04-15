@@ -56,15 +56,15 @@ Developed by Microsoft Research, AutoGen is arguably the most famous open-source
 
 ```mermaid
 graph TD
-  UserProxy[User Proxy Agent] -->|Starts Chat| Manager[GroupChat Manager (CEO)]
-  Manager -->|Assigns Task| DataEng[Data Engineer Agent]
-  DataEng -->|Calls Tools/Writes Code| Sandbox[Execution Sandbox]
+  UserProxy["User Proxy Agent"] -->|Starts Chat| Manager["GroupChat Manager (CEO)"]
+  Manager -->|Assigns Task| DataEng["Data Engineer Agent"]
+  DataEng -->|Calls Tools/Writes Code| Sandbox["Execution Sandbox"]
   Sandbox -->|Returns result| DataEng
-  Manager -->|Requests Analysis| Analyst[Financial Analyst]
+  Manager -->|Requests Analysis| Analyst["Financial Analyst"]
   Analyst -->|Submits Draft| Manager
-  Manager -->|Requests QA Testing| QA[QA Tester Agent]
+  Manager -->|Requests QA Testing| QA["QA Tester Agent"]
   QA -->|Validates Math & Logic| Manager
-  Manager -->|Requests Risk Audit| Risk[Risk Manager Agent]
+  Manager -->|Requests Risk Audit| Risk["Risk Manager Agent"]
   Risk -->|Suggests Fixes/Approves| Manager
   Manager -->|Returns Final Report| UserProxy
 ```
