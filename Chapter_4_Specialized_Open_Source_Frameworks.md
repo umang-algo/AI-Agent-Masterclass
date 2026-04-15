@@ -30,7 +30,7 @@ graph TD
 A boutique agency needs to generate multi-faceted ad campaigns rapidly. Building complex LangGraph architecture with nodes and edges takes weeks. They want a framework where they can speak in "Plain English" to define who the team members are (A Researcher, a Writer) and just hand them a list of tasks to execute collaboratively. To solve this, we need an abstraction that maps "Roles and Goals" directly into multi-agent workflows.
 
 ### The Solution (Code Reference)
-> 📁 **View the executable code here:** [`Code_Examples/Chapter4_CrewAI_Marketing.py`](./Code_Examples/Chapter4_CrewAI_Marketing.py)
+> 📁 **View the executable code here:** [`Code_Examples/Chapter4_CrewAI_Marketing.py`](./Code_Examples/Chapter4_CrewAI_Marketing.ipynb)
 
 We define the Agents, define the Tasks natively in Python, assemble them into a Crew, and instruct them to execute sequentially, handling all internal state management silently.
 
@@ -56,7 +56,7 @@ A radically minimalist Python library from Hugging Face that aggressively priori
 A hobbyist data scientist needs a lightweight agent to compute complex compounding financial math, but standard LLMs fail at math inherently. Furthermore, they don't want to export their raw data to OpenAI's expensive API. They need a system that pulls a free, open-source model which forces the agent to *write local python code to solve math problems* rather than trying to guess the answer.
 
 ### The Solution (Code Reference)
-> 📁 **View the executable code here:** [`Code_Examples/Chapter4_SmolAgents_Math.py`](./Code_Examples/Chapter4_SmolAgents_Math.py)
+> 📁 **View the executable code here:** [`Code_Examples/Chapter4_SmolAgents_Math.py`](./Code_Examples/Chapter4_SmolAgents_Math.ipynb)
 
 By leveraging SmolAgents, the agent's absolute default behavior is to output executable python blocks. The framework runs the block and returns the exact math answer perfectly reliably.
 

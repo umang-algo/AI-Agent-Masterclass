@@ -14,7 +14,7 @@ The OpenAI Assistants API is a persistent, stateful system managed completely on
 A sales manager wants to upload a raw CSV containing millions of rows of data and have an AI analyze it, run statistical operations, and plot a chart. Building an orchestration layer from scratch requires spinning up secure, containerized Python sandboxes to run the LLM's code safely. We need an out-of-the-box managed framework that handles the infra for us.
 
 ### The Solution (Code Reference)
-> 📁 **View the executable code here:** [`Code_Examples/Chapter3_OpenAI_DataScientist.py`](./Code_Examples/Chapter3_OpenAI_DataScientist.py)
+> 📁 **View the executable code here:** [`Code_Examples/Chapter3_OpenAI_DataScientist.py`](./Code_Examples/Chapter3_OpenAI_DataScientist.ipynb)
 
 We use the Assistants API with the native `code_interpreter` tool, entirely skipping local infrastructure setup. OpenAI automatically manages the Python execution sandbox on their servers.
 
@@ -48,7 +48,7 @@ graph LR
 A tech enterprise needs to summarize long, highly technical engineering bug reports for management. Because LLMs suffer from "hallucination"—sometimes inventing fake technical terms when they lack context—the enterprise requires 100% adherence to actual internet facts. We need an agent that is forced to cross-reference data over Google Search before replying.
 
 ### The Solution (Code Reference)
-> 📁 **View the executable code here:** [`Code_Examples/Chapter3_GoogleADK_Enterprise.py`](./Code_Examples/Chapter3_GoogleADK_Enterprise.py)
+> 📁 **View the executable code here:** [`Code_Examples/Chapter3_GoogleADK_Enterprise.py`](./Code_Examples/Chapter3_GoogleADK_Enterprise.ipynb)
 
 We leverage Vertex AI's native `GoogleSearchRetrieval` grounding tool, which instantly anchors the LLM's response to verified Google index results, providing precise metadata citations to audit.
 

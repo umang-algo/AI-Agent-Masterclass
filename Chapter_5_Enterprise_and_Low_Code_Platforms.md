@@ -29,7 +29,7 @@ graph LR
 A non-technical product manager wants to design an intricate, 15-step "Lead Qualification Agent" that references pricing PDFs, and wants to A/B test prompts easily. If developers write this in raw Python (LangChain), the PM has to open Pull Requests just to tweak a prompt. We need a system where the PM manages the Agent visually, and the Frontend Developer simply embeds the final AI output into the company Website.
 
 ### The Solution (Code Reference)
-> 📁 **View the executable code here:** [`Code_Examples/Chapter5_Dify_API.py`](./Code_Examples/Chapter5_Dify_API.py)
+> 📁 **View the executable code here:** [`Code_Examples/Chapter5_Dify_API.py`](./Code_Examples/Chapter5_Dify_API.ipynb)
 
 We solve this by using Dify as a visual "Backend-as-a-Service". The developer executes a simple REST API POST call from their Next.js/Python server to interact with the PM's visually completed Agent.
 

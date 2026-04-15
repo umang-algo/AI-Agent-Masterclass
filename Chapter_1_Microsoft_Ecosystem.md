@@ -11,24 +11,27 @@ Developed by Microsoft Research, AutoGen is arguably the most famous open-source
 
 ```mermaid
 graph TD
-  UserProxy[User Proxy Agent] -->|Starts Chat| Manager[GroupChat Manager]
-  Manager -->|Assigns Task| Analyst[Financial Analyst Agent]
-  Analyst -->|Calls Tools/Writes Code| Sandbox[Execution Sandbox]
-  Sandbox -->|Returns result| Analyst
+  UserProxy[User Proxy Agent] -->|Starts Chat| Manager[GroupChat Manager (CEO)]
+  Manager -->|Assigns Task| DataEng[Data Engineer Agent]
+  DataEng -->|Calls Tools/Writes Code| Sandbox[Execution Sandbox]
+  Sandbox -->|Returns result| DataEng
+  Manager -->|Requests Analysis| Analyst[Financial Analyst]
   Analyst -->|Submits Draft| Manager
-  Manager -->|Requests Review| Reviewer[Risk Reviewer]
-  Reviewer -->|Suggests Fixes| Manager
-  Reviewer -->|Approves| UserProxy
+  Manager -->|Requests QA Testing| QA[QA Tester Agent]
+  QA -->|Validates Math & Logic| Manager
+  Manager -->|Requests Risk Audit| Risk[Risk Manager Agent]
+  Risk -->|Suggests Fixes/Approves| Manager
+  Manager -->|Returns Final Report| UserProxy
 ```
 
 ### The Problem We Are Solving 
-**Automated Financial Analysis & Risk Review.**
-A hedge fund wants to automatically pull stock market trends, have a Junior Analyst draft a report, and a Senior Risk Reviewer explicitly critique that report. If a single LLM attempts this, it often hallucinates or misses critical risks due to lacking a "self-reflection" phase. We need a system where distinct conversational entities can debate and execute data-fetching code until they reach consensus.
+**Simulating a Fully Autonomous Financial Firm.**
+A hedge fund wants to completely automate its Q3 reporting process by spinning up a digital "AI Company". A single LLM cannot code, analyze, test, and audit risks all at once without catastrophic hallucination. We need an advanced orchestration layer where 5 distinct personas—a CEO, Data Engineer, Financial Analyst, QA Tester, and Risk Manager—can literally talk to each other in a virtual group chat, debug each other's code, debate errors, and reach consensus before returning data to the human proxy.
 
 ### The Solution (Code Reference)
-> 📁 **View the executable code here:** [`Code_Examples/Chapter1_AutoGen_Financial.py`](./Code_Examples/Chapter1_AutoGen_Financial.py)
+> 📁 **View the executable notebook here:** [`Code_Examples/Chapter1_AutoGen_Company.ipynb`](./Code_Examples/Chapter1_AutoGen_Company.ipynb)
 
-We solve this using AutoGen's `GroupChat` feature, assigning distinct personalities to the agents and letting them execute a workflow automatically in the background until consensus is reached.
+We solve this using AutoGen's `GroupChat` feature, assigning extremely rigid system prompts to 5 different agents, and placing them in a `GroupChatManager` room to automatically execute the pipeline.
 
 ### Advantages & Disadvantages
 **Advantages:**
@@ -38,7 +41,7 @@ We solve this using AutoGen's `GroupChat` feature, assigning distinct personalit
 
 **Disadvantages:**
 - **Unpredictable Determinism**: Because agents converse freely, they can get stuck in endless chat loops saying "Thank you" to each other if not strictly prompted.
-- **Steep learning curve**: Managing the state of deep group chats is complex.
+- **Steep learning curve**: Managing the state of deep, 6+ agent group chats is complex and quickly eats up token generation costs.
 
 ---
 
@@ -52,7 +55,7 @@ Semantic Kernel is an open-source SDK that makes it easy to integrate AI directl
 An enterprise CMS has an existing internal software library that changes text formats. The marketing team wants an AI tool that takes technical product specs, drafts an email, and automatically uses the *exact* legacy text formatter function before returning the result. Solving this using generic API calls is fragile; we need a framework that natively blends C#/Python logic (Skills) with AI Prompts (Semantic Functions).
 
 ### The Solution (Code Reference)
-> 📁 **View the executable code here:** [`Code_Examples/Chapter1_SemanticKernel_Marketing.py`](./Code_Examples/Chapter1_SemanticKernel_Marketing.py)
+> 📁 **View the executable code here:** [`Code_Examples/Chapter1_SemanticKernel_Marketing.py`](./Code_Examples/Chapter1_SemanticKernel_Marketing.ipynb)
 
 We use Semantic Kernel to import a native `TextSkill` alongside an OpenAI LLM, having the orchestration pipeline seamlessly execute both the AI logic and the native logic sequentially.
 
